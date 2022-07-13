@@ -145,8 +145,15 @@ a {
   width: 400px;
   padding: 10px;
   margin: 10px;
-  background-color: dodgerblue;
+  background-color: rgb(15, 80, 146);
   border-radius: 5px;
+  box-shadow: rgba(255, 255, 255, 0.24) 0px 3px 8px;
+}
+.card .editupdate{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 /* Contact Page */
 .contact {
@@ -254,6 +261,7 @@ footer {
   bottom: 0;
   left: 30%;
   right: 30%;
+  color: #fff;
   text-align: center;
   padding: 10px 0 10px 0;
 }
