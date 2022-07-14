@@ -30,7 +30,7 @@ const Card = ({ note }) => {
       </div>
       <hr style={{marginBottom: "5px"}}/>
       <p>{note.description}</p>
-      <p>
+      <p style={{textAlign: "right"}}>
         <strong>Last Date: </strong>
         {note.lastDate}
       </p>
