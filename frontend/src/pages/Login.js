@@ -85,7 +85,7 @@ const Login = () => {
             <path d="M35 31.5C36.6667 31.6667 38.6 32 41 30" stroke="black" />
           </svg>
         </div>
-        <form>
+        <form className="auth">
           <span className="title">Log-in</span>
           <label htmlFor="email">Email</label>
           <input type="email" placeholder="Your email address" />

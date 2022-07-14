@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const chalk = require("chalk");
 const log = console.log;
 const noteRoutes = require("./routes/noteRoutes");
+const authRoute = require("./routes/authRoute");
 
 // Database Setup
 // opne terminal and run this command: systemctl start mongodb
@@ -29,6 +30,7 @@ app.use((req, res, next) => {
 
 // routes
 app.use("/api/notes/", noteRoutes);
+app.use("/api/", authRoute);
 
 app.listen(process.env.PORT, () => {
   log(chalk.bgCyan.black(` Server listening on port ${process.env.PORT} `));

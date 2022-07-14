@@ -1,53 +1,53 @@
 import React from "react";
+// import { Link } from "react-router-dom";
 
 const Contact = () => {
   return (
-    <div>
-      <div className="contact">
-        <div className="left-part">
-          {/* <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14604.945260934202!2d90.42195354999998!3d23.774597800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c783c3404f0d%3A0x76ae0d2edabc81df!2sHatir%20Jheel!5e0!3m2!1sen!2sbd!4v1657729739237!5m2!1sen!2sbd"
-            width="800"
-            height="450"
-            style={{border: 0}}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe> */}
-          <iframe
-            width="900"
-            height="600"
-            frameBorder="0"
-            marginHeight="0"
-            marginWidth="0"
-            scrolling="no"
-            className="absolute inset-0"
-            title="maruf"
-            style={{ border: "none" }}
-            src="https://api.mapbox.com/styles/v1/ovimanimon/ckwooc5px0h0e14n3x7vst1nh.html?title=false&access_token=pk.eyJ1Ijoib3ZpbWFuaW1vbiIsImEiOiJja3dvaXZ5eG0wM2FiMnBtbmN3bmFhY2VvIn0.JdfY7_PtutOGnK1kenCCnA&zoomwheel=false#6.21/24.809/90.595"
-          ></iframe>
-        </div>
-        <div className="right-part">
-          <form>
-            <input
-              name="name"
-              type="text"
-              class="feedback-input"
-              placeholder="Name"
-            />
-            <input
-              name="email"
-              type="text"
-              class="feedback-input"
-              placeholder="Email"
-            />
-            <textarea
-              name="text"
-              class="feedback-input"
-              placeholder="Comment"
-            ></textarea>
-            <input type="submit" value="SUBMIT" />
-          </form>
+    <div className="contact-container">
+      <div className="container">
+        <div className="content">
+          <div className="left-side">
+            <div className="address details">
+              <i className="fas fa-map-marker-alt"></i>
+              <div className="topic">Address</div>
+              <div className="text-one">Rampura, Hatirjheel</div>
+              <div className="text-two">Dhaka 1212</div>
+            </div>
+            <div className="phone details">
+              <i className="fas fa-phone-alt"></i>
+              <div className="topic">Phone</div>
+              <div className="text-one">+88 019-####-####</div>
+              {/* <div className="text-two"></div> */}
+            </div>
+            <div className="email details">
+              <i className="fas fa-envelope"></i>
+              <div className="topic">Email</div>
+              <div className="text-one">mdmarufsarker.mms@gmail.com</div>
+              {/* <div className="text-two"></div> */}
+            </div>
+          </div>
+          <div className="right-side">
+            <div className="topic-text">Send us a message</div>
+            <p>
+              If you have any work from me or any types of quries related to my
+              tutorial, you can send me message from here. It's my pleasure to
+              help you.
+            </p>
+            <form action="mailto:mdmarufsarker.mms@gmail.com" method="post" enctype="multipart/form" target>
+              <div className="input-box">
+                <input type="text" placeholder="Enter your name" />
+              </div>
+              <div className="input-box">
+                <input type="text" placeholder="Enter your email" />
+              </div>
+              <div className="input-box message-box">
+                <textarea placeholder="Enter your message" col="30" row="5"/>
+              </div>
+              <div className="button">
+                <input type="submit" value="Send Now" />
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
