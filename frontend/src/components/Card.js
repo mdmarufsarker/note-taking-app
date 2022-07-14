@@ -1,6 +1,7 @@
 import React from "react";
+import { FaRegHeart } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
-import { GrUpdate } from "react-icons/gr";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 const Card = ({ note }) => {
   return (
@@ -24,13 +25,14 @@ const Card = ({ note }) => {
             gap: "10px",
           }}
         >
-          <FiEdit />
-          <GrUpdate />
+          <FaRegHeart style={{ fontSize: "20px" }} />
+          <FiEdit style={{ fontSize: "20px" }} />
+          <FaRegTrashAlt style={{ fontSize: "20px" }} />
         </div>
       </div>
-      <hr style={{marginBottom: "5px"}}/>
+      <hr style={{ marginBottom: "5px" }} />
       <p>{note.description}</p>
-      <p style={{textAlign: "right"}}>
+      <p style={{ textAlign: "right" }}>
         <strong>Last Date: </strong>
         {note.lastDate}
       </p>
