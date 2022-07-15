@@ -160,6 +160,9 @@ a {
   align-items: center;
 }
 
+.redAlert{
+  color: red;
+}
 footer {
   /* position: absolute; */
   bottom: 0;
