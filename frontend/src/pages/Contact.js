@@ -33,7 +33,7 @@ const Contact = () => {
               tutorial, you can send me message from here. It's my pleasure to
               help you.
             </p>
-            <form action="mailto:mdmarufsarker.mms@gmail.com" method="post" enctype="multipart/form" target>
+            <form action="mailto:mdmarufsarker.mms@gmail.com" method="post" enctype="text/plain">
               <div className="input-box">
                 <input type="text" placeholder="Enter your name" />
               </div>
@@ -44,7 +44,7 @@ const Contact = () => {
                 <textarea placeholder="Enter your message" col="30" row="5"/>
               </div>
               <div className="button">
-                <input type="submit" value="Send Now" />
+                <input type="submit"  value="Send Now" />
               </div>
             </form>
           </div>

@@ -41,11 +41,12 @@ a {
   position: fixed;
   background-color: var(--violet);
   overflow: hidden;
+  margin-top: 5px;
 }
 .menu a {
   display: block;
   font-size: 20px;
-  padding: 25px;
+  padding: 20px;
   color: var(--white);
 }
 .menu a:hover {
@@ -125,10 +126,14 @@ a {
     display: none;
   }
 }
+.homePage {
+  display: flex;
+  flex-direction: row;
+}
 /* Card */
 .pages {
   background-color: #fff;
-  height: 91vh;
+  height: auto;
 }
 .card-container {
   display: flex;
@@ -156,11 +161,11 @@ a {
 }
 
 footer {
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   left: 30%;
   right: 30%;
-  color: #fff;
+  color: dodgerblue;
   text-align: center;
   padding: 10px 0 10px 0;
 }
@@ -352,7 +357,9 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 150px;
+  margin-top: 50px;
+  height: 600px;
+  overflow-y: unset;
 }
 .container {
   width: 85%;
@@ -491,19 +498,20 @@ footer {
 
 /* Add Note */
 .addNote {
-  height: 91vh;
+  /* height: auto; */
   background-color: #0063ba;
-  width: 400px;
+  width: 450px;
+  border-radius: 5px;
 }
 .addNote h2 {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 50px;
   color: #fff;
 }
 .addNote form {
-  margin-top: 50px;
-  border-radius:10px;
-  width: 400px;
+  margin-top: 10px;
+  border-radius: 10px;
+  width: 450px;
   padding: 10px 20px 10px 20px;
 }
 .addNote form input,
@@ -518,7 +526,7 @@ footer {
 }
 .addNote form textarea {
   height: 188px;
-  resize:none;;
+  resize: none;
 }
 .addNote form .add {
   border: none;
@@ -527,10 +535,59 @@ footer {
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
 }
-.addNote form .add:hover{
+.addNote form .add:hover {
   background-color: #0c882d;
   color: #fff;
   font-weight: bold;
+}
+@media screen and (max-width: 1300px) {
+  .addNote form {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 850px) {
+  .addNote form {
+    width: 300px;
+  }
+  .menu li a {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .logo {
+    font-size: 30px;
+    padding: 20px 0;
+  }
+}
+@media screen and (max-width: 720px) {
+  .homePage {
+    flex-direction: column;
+  }
+  .addNote {
+    height: 320px;
+    width: 100%;
+    border-radius: 5px;
+  }
+  .addNote h2 {
+    margin-top: 20px;
+  }
+  .addNote form {
+    margin-top: 0px;
+    width: 100%;
+  }
+  .addNote form input,
+  .addNote form textarea {
+    margin: 5px 0;
+  }
+  .addNote form textarea {
+    height: 80px;
+  }
+}
+.error {
+  padding: 10px;
+  margin: 10px;
+  color: red;
+  background-color: #fff;
+  border-radius: 5px;
 }

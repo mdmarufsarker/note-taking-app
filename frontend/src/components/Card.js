@@ -1,9 +1,39 @@
-import React from "react";
+// import { useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
 import { FaRegTrashAlt } from "react-icons/fa";
 
 const Card = ({ note }) => {
+
+  // delete a note
+  const handleDelete = async () => {
+    const response = await fetch(`/api/notes/${note._id}`, {
+      method: "DELETE",
+    });
+    const json = await response.json();
+    if (response.ok) {
+      console.log("note deleted:", json);
+    }
+  }
+
+  // edit a note
+  const handleEdit = async () => {
+    const response = await fetch(`/api/notes/${note._id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        title: note.title,
+        description: note.description,
+        lastDate: note.lastDate,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const json = await response.json();
+    if (response.ok) {
+      console.log("note edited:", json);
+    }
+  }
   return (
     <div className="card">
       <div
@@ -25,9 +55,9 @@ const Card = ({ note }) => {
             gap: "10px",
           }}
         >
-          <FaRegHeart style={{ fontSize: "20px" }} />
-          <FiEdit style={{ fontSize: "20px" }} />
-          <FaRegTrashAlt style={{ fontSize: "20px" }} />
+          <FaRegHeart style={{ fontSize: "20px", cursor: "pointer" }} />
+          <FiEdit style={{ fontSize: "20px", cursor: "pointer" }} onSubmit={handleEdit} />
+          <FaRegTrashAlt style={{ fontSize: "20px", cursor: "pointer" }} onSubmit={handleDelete}/>
         </div>
       </div>
       <hr style={{ marginBottom: "5px" }} />

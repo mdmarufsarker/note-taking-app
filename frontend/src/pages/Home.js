@@ -19,8 +19,8 @@ const Home = () => {
   }, []);
 
   return (
-    <div style={{display: "flex", flexDirection: "row"}}>
-      <AddNote />
+    <div className="homePage">
+      <AddNote className="add-note"/>
       <div className="card-container">
         {notes && notes.map((note) => <Card note={note} key={note._id} />)}
         {/* <Card title="My Note" description="Mon amar kemon kemon kore" lastDate="23-2-21"/>
