@@ -1,16 +1,32 @@
-const Signup = require("../models/signupModel")
+const Signup = require("../models/signupModel");
+const bcrypt = require("bcryptjs");
 
 const userSignup = async (req, res) => {
-    const { name, email, password } = req.body;
-    const user = await Signup.findOne({ email });
-    if (user) {
-        return res.status(400).json({ msg: 'User already exists' });
-    }
-    const newUser = new Signup({ name, email, password });
-    await newUser.save();
-    const token = newUser.getToken();
-    res.status(200).json({ token });
+  const { name, email, password } = req.body;
 
-}
+  // check if user already exists
+  const oldUser = await Signup.findOne({ email });
+  if (oldUser) {
+    return res.status(400).json({
+      message: "User already exists",
+    });
+  }
 
-module.exports = userSignup
+  // hashed password
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  const newUser = new Signup({
+    name,
+    email,
+    password: hashedPassword,
+  });
+
+  try {
+    const user = await newUser.save();
+    res.send(user);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
+module.exports = userSignup;

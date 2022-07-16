@@ -173,6 +173,22 @@ footer {
   padding: 10px 0 10px 0;
 }
 
+/* Sign Up Page */
+.submit {
+  padding: 10px 50px;
+  margin: 15px auto 0 auto;
+  display: flex;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: all 0.2s ease-in-out;
+}
+.submit:hover{
+  background-color: #5f27cd;
+  color: #fff;
+}
+
 /* Login Page */
 #form-wrapper {
   max-width: 400px;

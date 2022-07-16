@@ -4,6 +4,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const chalk = require("chalk");
 const log = console.log;
+const bcrypt = require("bcryptjs");
 const noteRoutes = require("./routes/noteRoutes");
 const authRoute = require("./routes/authRoute");
 

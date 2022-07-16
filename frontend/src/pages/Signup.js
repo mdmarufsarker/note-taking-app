@@ -1,10 +1,41 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {FcGoogle} from "react-icons/fc/";
-import {BsFacebook} from "react-icons/bs/";
-import {FaGithub} from "react-icons/fa/";
+import { FcGoogle } from "react-icons/fc/";
+import { BsFacebook } from "react-icons/bs/";
+import { FaGithub } from "react-icons/fa/";
 
 const Signup = () => {
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setValues({ ...values});
+    console.table(values);
+    // console.log(values);
+    // console.log(values.name);
+    // console.log(values.email);
+    // console.log(values.password);
+
+    const { name, email, password } = values;
+    console.log(name, email, password);
+
+    fetch("/api/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, password }),
+    })
+  };
+  const handleChange = (e) => {
+    setValues({ ...values, error: false, [e.target.name]: e.target.value });
+  };
+  
+
   return (
     <div>
       <div id="form-wrapper">
@@ -85,20 +116,77 @@ const Signup = () => {
             <path d="M35 31.5C36.6667 31.6667 38.6 32 41 30" stroke="black" />
           </svg>
         </div>
-        <form className="auth">
+        <form className="auth" onSubmit={handleSubmit}>
           <span className="title">Sign-up</span>
           <label htmlFor="name">Name</label>
-          <input type="text" placeholder="Enter Full Name"/>
+          <input
+            type="text"
+            placeholder="Enter Full Name"
+            value={values.name}
+            onChange={handleChange}
+            name="name"
+            label="Name"
+            required
+          />
           <label htmlFor="email">Email</label>
-          <input type="email" placeholder="Your email address" />
+          <input
+            type="email"
+            placeholder="Your email address"
+            value={values.email}
+            onChange={handleChange}
+            name="email"
+            label="Email"
+            required
+          />
           <label htmlFor="password">Password</label>
-          <input type="password" placeholder="Password" />
-          <input type="submit" value="Signup" />
-          <div style={{textAlign: "center", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", padding: "5px"}}><hr style={{height: "1px", width: "50px", margin: "0 10px 0 10px"}}/>or continue with<hr style={{height: "1px", width: "50px", margin: "0 10px 0 10px"}}/></div>
+          <input
+            type="password"
+            placeholder="Password"
+            value={values.password}
+            onChange={handleChange}
+            name="password"
+            label="Password"
+            required
+          />
+          <button
+            className="submit"
+            type="submit"
+            value={values.email}
+            onChange={handleChange}
+            name="email"
+            label="Email"
+            required
+          >
+            Sign Up
+          </button>
+          <div
+            style={{
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "5px",
+            }}
+          >
+            <hr
+              style={{ height: "1px", width: "50px", margin: "0 10px 0 10px" }}
+            />
+            or continue with
+            <hr
+              style={{ height: "1px", width: "50px", margin: "0 10px 0 10px" }}
+            />
+          </div>
           <div className="login-with">
-              <Link to="/signup"><FcGoogle/></Link>
-              <Link to="/signup"><BsFacebook/></Link>
-              <Link to="/signup"><FaGithub/></Link>
+            <Link to="/signup">
+              <FcGoogle />
+            </Link>
+            <Link to="/signup">
+              <BsFacebook />
+            </Link>
+            <Link to="/signup">
+              <FaGithub />
+            </Link>
           </div>
         </form>
       </div>

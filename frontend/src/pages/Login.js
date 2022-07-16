@@ -1,10 +1,34 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import {FcGoogle} from "react-icons/fc/";
-import {BsFacebook} from "react-icons/bs/";
-import {FaGithub} from "react-icons/fa/";
+import { FcGoogle } from "react-icons/fc/";
+import { BsFacebook } from "react-icons/bs/";
+import { FaGithub } from "react-icons/fa/";
+import { useState } from "react";
 
 const Login = () => {
+  const [values, setValues] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { email, password } = values;
+    // console.log(email, password);
+
+    if (email && password) {
+      setValues({
+        email: "",
+        password: "",
+      });
+    }
+  };
+  const handleChange = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <div>
       <div id="form-wrapper">
@@ -85,21 +109,60 @@ const Login = () => {
             <path d="M35 31.5C36.6667 31.6667 38.6 32 41 30" stroke="black" />
           </svg>
         </div>
-        <form className="auth">
+        <form className="auth" onSubmit={handleSubmit}>
           <span className="title">Log-in</span>
           <label htmlFor="email">Email</label>
-          <input type="email" placeholder="Your email address" />
+          <input
+            type="email"
+            placeholder="Your email address"
+            value={values.email}
+            onChange={handleChange}
+            name="email"
+            label="Email"
+            required
+          />
           <label htmlFor="password">Password</label>
-          <input type="password" placeholder="Password" />
+          <input
+            type="password"
+            placeholder="Password"
+            value={values.password}
+            onChange={handleChange}
+            name="password"
+            label="Password"
+            required
+          />
           <span className="forget">
             <Link to="/">Forget password?</Link>
           </span>
           <input type="submit" value="Login" />
-          <div style={{textAlign: "center", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", padding: "5px"}}><hr style={{height: "1px", width: "50px", margin: "0 10px 0 10px"}}/>or continue with<hr style={{height: "1px", width: "50px", margin: "0 10px 0 10px"}}/></div>
+          <div
+            style={{
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "5px",
+            }}
+          >
+            <hr
+              style={{ height: "1px", width: "50px", margin: "0 10px 0 10px" }}
+            />
+            or continue with
+            <hr
+              style={{ height: "1px", width: "50px", margin: "0 10px 0 10px" }}
+            />
+          </div>
           <div className="login-with">
-              <Link to="/signup"><FcGoogle/></Link>
-              <Link to="/signup"><BsFacebook/></Link>
-              <Link to="/signup"><FaGithub/></Link>
+            <Link to="/signup">
+              <FcGoogle />
+            </Link>
+            <Link to="/signup">
+              <BsFacebook />
+            </Link>
+            <Link to="/signup">
+              <FaGithub />
+            </Link>
           </div>
           <span className="new">
             Didn't have an account? <Link to="/signup">Create account</Link>
